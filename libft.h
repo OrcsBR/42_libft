@@ -6,7 +6,7 @@
 /*   By: peduardo < peduardo@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 21:10:35 by peduardo          #+#    #+#             */
-/*   Updated: 2021/08/14 02:10:06 by peduardo         ###   ########.fr       */
+/*   Updated: 2021/08/22 15:43:50 by peduardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,18 @@
 # include <stdio.h>
 # include <unistd.h>
 
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}				t_list;
+
 /**
- * @brief The ft_atoi() function onverts the initial portion of the string
- * pointed by str to int.
- * @param str Pointer to the area of memory of the string to be converted.
- * @return int The converted value as int or 0 on error
- */
+* @brief The ft_atoi() function onverts the initial portion of the string
+* pointed by str to int.
+* @param str Pointer to the area of memory of the string to be converted.
+* @return int The converted value as int or 0 on error
+*/
 int		ft_atoi(const char *str);
 
 /**

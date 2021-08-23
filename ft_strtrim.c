@@ -6,7 +6,7 @@
 /*   By: peduardo < peduardo@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 00:11:32 by peduardo          #+#    #+#             */
-/*   Updated: 2021/08/10 01:35:57 by peduardo         ###   ########.fr       */
+/*   Updated: 2021/08/18 03:22:59 by peduardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	begin;
 	size_t	end;
 
+	if (!s1 || !set)
+		return (NULL);
 	i = 0;
 	while (s1[i] != '\0' && ft_charcmp(s1[i], set))
 		i++;

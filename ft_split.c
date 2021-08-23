@@ -6,7 +6,7 @@
 /*   By: peduardo < peduardo@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 15:09:07 by peduardo          #+#    #+#             */
-/*   Updated: 2021/08/13 01:40:21 by peduardo         ###   ########.fr       */
+/*   Updated: 2021/08/18 03:41:37 by peduardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,14 @@ static int	count_words(const char *s, char c)
 	while (s[i] != '\0')
 	{
 		if (s[i] != c && control == 0)
-			control = 1;
-		else if (s[i] == c && control == 1)
 		{
-			control = 0;
+			control = 1;
 			n_word++;
 		}
+		if (s[i] == c && control == 1)
+			control = 0;
 		i++;
 	}
-	if (n_word == 0)
-		return (1);
 	return (n_word);
 }
 
@@ -64,6 +62,8 @@ char	**ft_split(char const *s, char c)
 	i = -1;
 	j = 0;
 	init_w = -1;
+	if (!s)
+		return (NULL);
 	split = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!split)
 		return (NULL);
@@ -77,5 +77,6 @@ char	**ft_split(char const *s, char c)
 			init_w = -1;
 		}
 	}
+	split[j] = NULL;
 	return (split);
 }
