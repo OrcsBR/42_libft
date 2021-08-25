@@ -6,7 +6,7 @@
 /*   By: peduardo < peduardo@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 21:10:35 by peduardo          #+#    #+#             */
-/*   Updated: 2021/08/22 15:43:50 by peduardo         ###   ########.fr       */
+/*   Updated: 2021/08/25 11:03:11 by peduardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -356,5 +356,15 @@ void	ft_putendl_fd(char *s, int fd);
  * @return None.
  */
 void	ft_putnbr_fd(int n, int fd);
+
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *element);
+void	ft_lstadd_back(t_list **lst, t_list *element);
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstdelone(t_list *lst_el, void (*del)(void*));
+void	ft_lstclear(t_list **lst_el, void (*del)(void*));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

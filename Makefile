@@ -19,7 +19,7 @@ ft_lstmap.c
 
 OBJS = ${SRCS:.c=.o}
 
-BONUS_OBJS = ${BONUS_SRCS: .c=.o}
+BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 
 #$(OBJ): ${SRCS}
 #		${CC} ${CFLAGS} -I ./libft.h -c $< -o $@
@@ -27,24 +27,20 @@ BONUS_OBJS = ${BONUS_SRCS: .c=.o}
 .c.o:
 	${CC} ${CFLAGS} -I ./libft.h -c $< -o ${<:.c=.o}
 
+all:	${NAME}
+
 $(NAME): ${OBJS}
 		ar rcs ${NAME} ${OBJS}
 
-all:	${NAME}
-
-bonus:	$(NAME) $(OBJS_BONUS)
-		ar rcs $(NAME) $(OBJS_BONUS)
+bonus:	$(NAME) ${BONUS_OBJS}
+		ar rcs $(NAME) ${BONUS_OBJS}
 
 clean:
-		${RM} ${OBJS} ${OBJS_BONUS}
+		${RM} ${OBJS} ${BONUS_OBJS}
 
 fclean:	clean
 		${RM} ${NAME}
 
 re:		fclean all
 
-so:	${NAME}
-	${CC} -nostartfiles -fPIC ${CFLAGS} ${SRCS}
-	gcc -nostartfiles -shared -o libft.so ${OBJS}
-
-.PHONY : all clean fclean re so bonus
+.PHONY : all clean fclean re bonus
