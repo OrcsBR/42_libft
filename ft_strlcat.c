@@ -33,14 +33,3 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	dest[destlen + i] = '\0';
 	return (destlen + srclen);
 }
-
-/* Pq isso tudo no gcc dá o seguinte erro?
-*** stack smashing detected ***: terminated
-[1]    55716 IOT instruction (core dumped)  ./a.out */
-
-/* onlinegdb.com:
-*** stack smashing detected ***: ./a.out terminated
-concatenation is ABCDEFabcdef. Return is 12 <-  11 is being returned in clang!!!!
-
-...Program finished with exit code 0
-Press ENTER to exit console. */
