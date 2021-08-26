@@ -21,9 +21,6 @@ OBJS = ${SRCS:.c=.o}
 
 BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 
-#$(OBJ): ${SRCS}
-#		${CC} ${CFLAGS} -I ./libft.h -c $< -o $@
-
 .c.o:
 	${CC} ${CFLAGS} -I ./libft.h -c $< -o ${<:.c=.o}
 
